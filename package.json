@@ -1,0 +1,65 @@
+{
+  "name": "@frayt/sdk",
+  "version": "1.0.70",
+  "description": "SDK for FRAYT apps",
+  "main": "./dist/@frayt/sdk.mjs",
+  "module": "./dist/@frayt/sdk.umd.cjs",
+  "author": "Frayt Technologies, Inc",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frayt-Technologies/frayt-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Frayt-Technologies/frayt-sdk/issues"
+  },
+  "homepage": "https://github.com/Frayt-Technologies/frayt-sdk#readme",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "import": "./dist/@frayt/sdk.mjs",
+    "require": "./dist/@frayt/sdk.umd.cjs"
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts",
+    "test": "vitest --watch=false",
+    "test:coverage": "vitest run --coverage",
+    "lint:scripts": "eslint . --ext .ts",
+    "lint:styles": "stylelint ./**/*.{css,scss}",
+    "format:scripts": "prettier . --write",
+    "format:styles": "stylelint ./**/*.{css,scss} --fix",
+    "format": "npm run format:scripts && npm run format:styles",
+    "prepare": "husky install && husky add .husky/pre-commit 'npx lint-staged' && git add .husky/pre-commit && npm run build"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^20.0.0",
+    "@types/node": "^18.7.16",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "dotenv": "^16.0.3",
+    "dts-bundle-generator": "^6.13.0",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "react": "18.1.0",
+    "react-native-image-crop-picker": "^0.38.1",
+    "stylelint": "^14.11.0",
+    "stylelint-config-recommended": "^9.0.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3",
+    "vite": "^4.0.0",
+    "vitest": "^0.24.3"
+  },
+  "dependencies": {
+    "axios": "^1.1.3",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.4"
+  },
+  "types": "./dist/@frayt/sdk.d.ts"
+}
